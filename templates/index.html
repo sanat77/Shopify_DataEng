@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Image Repository</title>
+    </head>
+
+    <body>
+        <a href="/">Home</a> <br>
+        <a href="/reset">Reset Database</a> <br>
+
+        <br>
+        <p>You have bought ${{total_paid}} worth of products!</p> <br>
+
+        <table border = 1>
+            <thead>
+                <td>ID</td>
+                <td>Name</td>
+                <td>Image</td>
+                <td>Price</td>
+                <td>Inventory</td>
+            </thead>
+            
+            {% for product in products %}
+                <tr>
+                <td>{{product["_id"]}}</td>
+                <td>{{product["name"]}}</td>
+                <td><img src="{{product['src']}}" alt="{{product['src']}}"/></td>
+                <td>${{product["price"]}}</td>
+                <td>{{product["inventory"]}}</td>
+                <td><a href='/buy/{{product["_id"]}}'>BUY</button></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>
